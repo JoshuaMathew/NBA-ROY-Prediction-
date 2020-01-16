@@ -377,7 +377,7 @@ for i in list(range(startYearTrain-startYear)):
     if ROYs[i] == KNpred_players[i]:
         count+= 1
 accuracy_KNN = count / (startYearTrain-startYear)
-print('The KNN model correctly predicted ' + str(round(accuracy,2)) + ' of the ROYs')
+print('The KNN model correctly predicted ' + str(round(accuracy_KNN,2)) + ' of the ROYs')
 
 KNComp = pd.DataFrame(np.stack((ROYs,KNpred_players),axis=-1))
 KNComp.columns = ['Actual','Predicted']
