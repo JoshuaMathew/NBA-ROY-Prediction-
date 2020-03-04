@@ -293,14 +293,6 @@ LRpred_player20 = rookies20.iloc[pred_player20_indexcon[0]].Player
 
 print(LRpred_player20 + ' is the predicted 2020 ROY')
 
-# 2020 probability Bar Chart
-plt.bar(np.arange(2),[.83,.19] , width=.8, bottom=None, align='center', data=None)
-plt.xticks(np.arange(2), ['Ja Morant','Kendrick Nunn'])
-plt.ylabel('Probability')
-plt.xlabel('Player')
-plt.text(-.1,.85,'.83')
-plt.text(.9,.2,'.19')  
-
 #%%
 # Graphing weights
 LR_weights = logreg.coef_[0]
@@ -485,3 +477,11 @@ plt.xticks(y_pos, objects,rotation = 'vertical')
 #plt.ylabel('Usage')
 plt.title('NN Model Feature Weights')
 plt.show()
+
+# 2020 probability Bar Chart LR
+plt.bar(np.arange(2),[.83,.19] , width=.8, bottom=None, align='center', data=None)
+plt.xticks(np.arange(2), ['Ja Morant','Kendrick Nunn'])
+plt.ylabel('Probability')
+plt.xlabel('Player')
+plt.text(-.1,.85,'.83')
+plt.text(.9,.2,'.19')  
