@@ -196,7 +196,7 @@ fig2 = sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
 
 plt.savefig("heatmap.png")       
 
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   LINEAR REGRESSION
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Logistic REGRESSION
 rookies = combinedStats
 
 rookies20 = stats20
@@ -211,6 +211,10 @@ features_options = ['G', 'MP', 'FG', 'FGA', '3P', '3PA', 'ORB', 'TRB', 'AST', 'S
 
 features = [ 'MP', 'FG','RPG', 'AST',  'BLK', 'TOV', 'PTS', 'FG%',
         'FT%', 'MPG', 'PPG', 'APG','PPG Rank','APG Rank','RPG Rank','TRB']
+
+#per game features only
+#features = [ 'FG','RPG', 'FG%',
+#        'FT%', 'MPG', 'PPG', 'APG','PPG Rank','APG Rank','RPG Rank']
 
 # split data into test and training data
 
@@ -258,7 +262,7 @@ for i in allStats2:
 pred_players = list(range(len(allStats2)))
 
 
-
+#%%  
 # Use linreg model to predict roy for each class
 for i in allStatsTest:
     pred_prob = logreg.predict_proba(allStatsTest[i])[:,1]
@@ -282,8 +286,8 @@ index = list(range(startYear,2020))
 Comp.index = index
 
 # Predict 2020 ROY
-ROY20_prob = logreg.predict_proba(rookies20[features])[:,1]
-pred_20_index = np.where(ROY20_prob == max(ROY20_prob))
+LRpred20_prob = logreg.predict_proba(rookies20[features])[:,1]
+pred_20_index = np.where(LRpred20_prob == max(LRpred20_prob))
 pred_player20_indexcon = pd.to_numeric(pred_20_index[0], errors='coerce')
 LRpred_player20 = rookies20.iloc[pred_player20_indexcon[0]].Player
 
@@ -296,6 +300,20 @@ plt.ylabel('Probability')
 plt.xlabel('Player')
 plt.text(-.1,.85,'.83')
 plt.text(.9,.2,'.19')  
+
+#%%
+# Graphing weights
+LR_weights = logreg.coef_[0]
+LR_weights[[12,13]] = LR_weights[[12,13]]*-1
+
+objects = features
+y_pos = np.arange(len(objects))
+
+plt.bar(y_pos, LR_weights, align='center', alpha=0.5,width = .3)
+plt.xticks(y_pos, objects,rotation = 'vertical')
+#plt.ylabel('Usage')
+plt.title('LR Model Feature Weights')
+plt.show()
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    KNN
 #  Generate test and training data
@@ -319,6 +337,7 @@ x_train_reduced = pca.transform(x_train_norm)
 x_test_reduced = pca.transform(x_test_norm)
 rookies20_reduced = pca.transform(rookies20_norm)
 
+#%% KNN
 # For loop to find best neighbors value
 error = []
 
@@ -389,7 +408,7 @@ KNComp.index = index
 NNclassifier = Sequential()
 
 # Adding the input layer and the first hidden layer
-NNclassifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu', input_dim = 16))
+NNclassifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu', input_dim = len(features)))
 # Adding the second hidden layer
 NNclassifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu'))
 # Adding the output layer
@@ -444,10 +463,25 @@ count = 0
 for i in list(range(len(ROYs)-(startYearTrain-startYear-1))):
     if ROYs[i] == NNpred_players[i]:
         count+= 1
-accuracy = count / (len(ROYs)-(startYearTrain-startYear-1))
-print('The neural netowrk correctly predicted ' + str(round(accuracy,2)) + ' of the ROYs')
+NN_accuracy = count / (len(ROYs)-(startYearTrain-startYear-1))
+print('The neural network correctly predicted ' + str(round(NN_accuracy,2)) + ' of the ROYs')
 
 NNComp = pd.DataFrame(np.stack((ROYs,NNpred_players),axis=-1))
 NNComp.columns = ['Actual','Predicted']
 index = list(range(startYear,2020))
 NNComp.index = index
+
+#%% Graphing Weights
+
+NN_weights   = NNclassifier.get_weights()
+N_weights = NN_weights[0][:,5]*-1
+N_weights[[12,13,14]] =N_weights[[12,13,14]]*-1
+
+objects = features
+y_pos = np.arange(len(objects))
+
+plt.bar(y_pos, N_weights, align='center', alpha=0.5,width = .3)
+plt.xticks(y_pos, objects,rotation = 'vertical')
+#plt.ylabel('Usage')
+plt.title('NN Model Feature Weights')
+plt.show()
