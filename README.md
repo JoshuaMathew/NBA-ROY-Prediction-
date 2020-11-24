@@ -40,3 +40,11 @@ The model correctly predicted 33 players that were not ROY, 3 players correctly 
 | 1998| Tim Duncan | Tim Duncan |
 | 1999| Vince Carter | Vince Carter |
 | 2000| Elton Brand | Elton Brand |
+
+The LR model correctly predicted the ROY winner during these 11 seasons all but two times for a total of 81.8% accuracy. The figure below displays the weights the LR model assigned to each predictor. PPG Rank was the most influencing variable towards winning followed by APG Rank. Surprisingly, rebounding was negatively correlated with winning. This may be because rebounding and assists are negatively correlated.
+
+![LR_weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/LR_weights.JPG)
+
+The LR model was then fed the data for the current 2019-2020 rookies in the NBA and the results conclude that Ja Morant has the greatest chance to win ROY. The results can be seen below.
+
+![LR_pred](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/LR_prob.JPG)
