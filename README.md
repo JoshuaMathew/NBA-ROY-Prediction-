@@ -18,9 +18,10 @@ The overall model accuracy on the test data is not a great indicator of how good
 
 The first model created was a logistic regression (LR) model. This model had an overall 95% accuracy on the test data. Below is a confusion matrix of the results.
 
-| Predicted |
-| :---:   | :-: | 
-|  ROY  | Not ROY |
-| 33  | 1  |
-| 1 | 3 |
+
+
+|  | Predicted ROY  | Predicted Not ROY |
+| :---:  | :-: | :-:|
+| Actual ROY| 33  | 1  |
+| Actual Not ROY| 1 | 3 |
 
