@@ -151,5 +151,7 @@ The linear regression was the second best performing model followed by k-nearest
 
 ## References
 [1]	Basketball Statistics and History,” Basketball Reference. [Online]. Available: https://www.basketball-reference.com/. [Accessed: 27-Nov-2019].W.-K. Chen, Linear Networks and Systems. Belmont, CA, USA: Wadsworth, 1993, pp. 123–135.
+
 [2]	D. Bratulić “Predicting 2018–19 NBA's Most Valuable Player using Machine Learning,” Medium, 15-May-2019. [Online]. Available: https://towardsdatascience.com/predicting-2018-19-nbas-most-valuable-player-using-machine-learning-512e577032e3. [Accessed: 17-Dec-2019].
+
 [3]	S. Kannan, “Predicting NBA Rookie Stats with Machine Learning,” Medium, 30-Jun-2019. [Online]. Available: https://towardsdatascience.com/predicting-nba-rookie-stats-with-machine-learning-28621e49b8a4. [Accessed: 17-Dec-2019].
