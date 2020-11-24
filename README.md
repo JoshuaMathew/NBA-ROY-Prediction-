@@ -17,7 +17,7 @@ Once the most effective predictors were established, the dataset of ROY winners 
 ### Model Evaluation
 The overall model accuracy on the test data is not a great indicator of how good the model is because there is an unequal distribution of the two classes, there are many more non-ROYs in the data than ROYs. Because of this we are more concerned with the true positive rate (TPR) which is the proportion of actual ROYs that were correctly predicted to be ROY.
 
-## Logistic Regression
+## Logistic Regression Model
 
 The first model created was a logistic regression (LR) model. This model had an overall 95% accuracy on the test data. Below is a confusion matrix of the results on the validation set.
 
@@ -55,3 +55,37 @@ The LR model was then fed the data for the current 2019-2020 rookies in the NBA 
 
 ![LR_pred](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/LR_prob.JPG)
 
+## K-Nearest Neighbors Model
+
+The second model used was the k-nearest neighbors algorithm. The data was first normalized, and the number of features was reduced from 16 to 9 using principal component analysis (PCA) to retain 95% variance before training and testing the model. 
+
+The model was tested using k values ranging from 1 to 40. A k value of 5 resulted in the model with the lowest mean error. This model had an overall accuracy of 89% on the test data. Below is a plot of the model error rate vs the number of neighbors used.
+
+![KNN_error](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/KNN_error.JPG)
+
+Below is the confusion matrix of the results of the KNN model on the validation dataset.
+
+|  | Predicted ROY  | Predicted Not ROY |
+| :---:  | :-: | :-:|
+| Actual ROY| 33  | 1  |
+| Actual Not ROY| 2 | 2 |
+
+The model correctly predicted 33 players that were not ROY, 2 players correctly that were ROY, 1 player was predicted incorrectly to be ROY, and 2 players not to be ROY that actually were. The true positive rate (TPR) was 50% and the false positive rate (FPR) was 2.9%.
+
+The KNN model correctly predicted the ROY from 1990-2000 72.7% of the time only missing 3 out of 11. This is slightly worse than the LR method, but when given the current 2020 player data, the KNN model also predicted Ja Morant to win the ROY.
+
+| Year | Actual ROY  | Predicted ROY |
+| :---:  | :-: | :-:|
+| 1990| David Robinson  | Tim Hardaway  |
+| 1991| Derrick Coleman | Derrick Coleman |
+| 1992| Larry Johnson | Larry Johnson |
+| 1993| Shaquille O'Neal | Christian Laettner |
+| 1994| Chris Webber | Anfernee Hardaway |
+| 1995| Grant Hill | Grant Hill |
+| 1996| Damon Stoudamire | Damon Stoudamire |
+| 1997| Allen Iverson | Antoine Walker |
+| 1998| Tim Duncan | Tim Duncan |
+| 1999| Vince Carter | Vince Carter |
+| 2000| Elton Brand | Elton Brand |
+
+## Neural Network Model
