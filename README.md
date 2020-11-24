@@ -53,11 +53,11 @@ The LR model correctly predicted the ROY winner during these 11 seasons all but 
 
 The figure below displays the weights the LR model assigned to each predictor. PPG Rank was the most influencing variable towards winning followed by APG Rank. Surprisingly, rebounding was negatively correlated with winning. This may be because rebounding and assists are negatively correlated.
 
-![LR_weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/LR_weights.JPG)
+![LR_weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/LR_weights.JPG)
 
 The LR model was then fed the data for the current 2019-2020 rookies in the NBA and the results conclude that Ja Morant has the greatest chance to win ROY. The results can be seen below.
 
-![LR_pred](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/LR_prob.JPG)
+![LR_pred](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/LR_prob.JPG)
 
 ## K-Nearest Neighbors Model
 
@@ -65,7 +65,7 @@ The second model used was the k-nearest neighbors algorithm. The data was first 
 
 The model was tested using k values ranging from 1 to 40. A k value of 5 resulted in the model with the lowest mean error. This model had an overall accuracy of 89% on the test data. Below is a plot of the model error rate vs the number of neighbors used.
 
-![KNN_error](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/KNN_error.JPG)
+![KNN_error](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/KNN_error.JPG)
 
 Below is the confusion matrix of the results of the KNN model on the validation dataset.
 
@@ -94,13 +94,13 @@ The KNN model correctly predicted the ROY from 1990-2000 72.7% of the time only 
 
 ## Neural Network Model
 
-![NN Structure](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/NN.JPG)
+![NN Structure](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/NN.JPG)
 
 The final model used was a neural network (NN). The input layers takes in the 16 features, followed by 2 dense fully connected layers containing 6 nodes each. The ReLu activation function was used for the hidden layers. Because the output is binary, the sigmoid function was used for the output layer. The structure of the NN is shown above.
 
 The data was again normalized before training and testing. The neural network was trained using a batch size of 10 over 250 epochs. The cross-entropy loss function and Adam optimization algorithm were employed. The validation loss curve is shown below.
 
-![NN Loss](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/NN_loss.JPG)
+![NN Loss](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/NN_loss.JPG)
 
 Below is the confusion matrix for the results of the NN on the validation dataset.
 
@@ -131,7 +131,7 @@ The neural network model correctly predicted the ROY winner 10/11 seasons for a 
 
 The figure below displays the predictor weights of the model. Stats associated with assists were the biggest predictors. Surprisingly turnovers were positively associated with winning even though turning the ball over is bad. This may be because turnovers are positively correlated with points and assists.
 
-![NN Weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/NN_weights.JPG)
+![NN Weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/NN_weights.JPG)
 
 After inputting the 2019-2020 rookie data into the model Ja Morant was again predicted to be the 2020 ROY.
 
