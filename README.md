@@ -25,3 +25,18 @@ The first model created was a logistic regression (LR) model. This model had an 
 | Actual ROY| 33  | 1  |
 | Actual Not ROY| 1 | 3 |
 
+The model correctly predicted 33 players that were not ROY, 3 players correctly that were ROY, 1 player was predicted incorrectly to be ROY, and 1 player was not predicted to be ROY that actually was. The true positive rate (TPR) was ¾ or 75% and the false positive rate (FPR) was 1/34 or 2.9%. Below is a table displaying the ROY’s that the LR model predicted for the 1990-2000 season compared to the actual ROY winners.
+
+| Year | Actual ROY  | Predicted ROY |
+| :---:  | :-: | :-:|
+| 1990| David Robinson  | David Robinson  |
+| 1991| Derrick Coleman | Lionel Simmons |
+| 1992| Larry Johnson | Larry Johnson |
+| 1993| Shaquille O'Neal | Shaquille O'Neal |
+| 1994| Chris Webber | Chris Webber |
+| 1995| Grant Hill | Grant Hill |
+| 1996| Damon Stoudamire | Damon Stoudamire |
+| 1997| Allen Iverson | Antoine Walker |
+| 1998| Tim Duncan | Tim Duncan |
+| 1999| Vince Carter | Vince Carter |
+| 2000| Elton Brand | Elton Brand |
