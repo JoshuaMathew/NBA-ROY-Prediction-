@@ -53,7 +53,7 @@ The LR model correctly predicted the ROY winner during these 11 seasons all but 
 
 The figure below displays the weights the LR model assigned to each predictor. PPG Rank was the most influencing variable towards winning followed by APG Rank. Surprisingly, rebounding was negatively correlated with winning. This may be because rebounding and assists are negatively correlated.
 
-![LR_weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/LR_weights.JPG)
+![LR_weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/LR_weight.JPG)
 
 The LR model was then fed the data for the current 2019-2020 rookies in the NBA and the results conclude that Ja Morant has the greatest chance to win ROY. The results can be seen below.
 
