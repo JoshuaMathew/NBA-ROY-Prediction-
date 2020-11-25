@@ -1,4 +1,4 @@
-# NBA-ROY-Prediction-
+# NBA Rookie of the Year Prediction With Machine Learning
 
 ## Intro
 
