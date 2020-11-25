@@ -132,7 +132,7 @@ The neural network model correctly predicted the ROY winner 10/11 seasons for a 
 The figure below displays the predictor weights of the model. Stats associated with assists were the biggest predictors. Surprisingly turnovers were positively associated with winning even though turning the ball over is bad. This may be because turnovers are positively correlated with points and assists.
 
 <p align="center">
-![NN Weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/nn_weight.JPG)
+  ![NN Weights](https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/nn_weight.JPG)
 </p>
 
 After inputting the 2019-2020 rookie data into the model Ja Morant was again predicted to be the 2020 ROY.
