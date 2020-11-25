@@ -25,7 +25,7 @@ The overall model accuracy on the test data is not a great indicator of how good
 
 ## Logistic Regression Model
 
-The first model created was a logistic regression (LR) model. This model had an overall 95% accuracy on the test data. Below is a confusion matrix of the results on the validation set.
+The first model created was a logistic regression (LR) model. This model had an overall 95% accuracy on the test data. Below is a confusion matrix of the results on the validation set:
 
 |  | Predicted ROY  | Predicted Not ROY |
 | :---:  | :-: | :-:|
@@ -34,7 +34,7 @@ The first model created was a logistic regression (LR) model. This model had an 
 
 The model correctly predicted 33 players that were not ROY, 3 players correctly that were ROY, 1 player was predicted incorrectly to be ROY, and 1 player was not predicted to be ROY that actually was. The true positive rate (TPR) was ¾ or 75% and the false positive rate (FPR) was 1/34 or 2.9%. 
 
-Below is a table displaying the ROY’s that the LR model predicted for the seperate 1990-2000 test set compared to the actual ROY winners.
+Below is a table displaying the ROY’s that the LR model predicted for the seperate 1990-2000 test set compared to the actual ROY winners:
 
 | Year | Actual ROY  | Predicted ROY |
 | :---:  | :-: | :-:|
@@ -68,13 +68,13 @@ The LR model was then fed the data for the current 2019-2020 rookies in the NBA 
 
 The second model used was the k-nearest neighbors algorithm. The data was first normalized, and the number of features was reduced from 16 to 9 using principal component analysis (PCA) to retain 95% variance before training and testing the model. 
 
-The model was tested using k values ranging from 1 to 40. A k value of 5 resulted in the model with the lowest mean error. This model had an overall accuracy of 89% on the test data. Below is a plot of the model error rate vs the number of neighbors used.
+The model was tested using k values ranging from 1 to 40. A k value of 5 resulted in the model with the lowest mean error. This model had an overall accuracy of 89% on the test data. Below is a plot of the model error rate vs the number of neighbors used:
 
 <p align="center">
   <img src="https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/KN_error.JPG">
 </p>
 
-Below is the confusion matrix of the results of the KNN model on the validation dataset.
+Below is the confusion matrix of the results of the KNN model on the validation dataset:
 
 |  | Predicted ROY  | Predicted Not ROY |
 | :---:  | :-: | :-:|
@@ -107,13 +107,13 @@ The KNN model correctly predicted the ROY from 1990-2000 72.7% of the time only 
 
 The final model used was a neural network (NN). The input layers takes in the 16 features, followed by 2 dense fully connected layers containing 6 nodes each. The ReLu activation function was used for the hidden layers. Because the output is binary, the sigmoid function was used for the output layer. The structure of the NN is shown above.
 
-The data was again normalized before training and testing. The neural network was trained using a batch size of 10 over 250 epochs. The cross-entropy loss function and Adam optimization algorithm were employed. The validation loss curve is shown below.
+The data was again normalized before training and testing. The neural network was trained using a batch size of 10 over 250 epochs. The cross-entropy loss function and Adam optimization algorithm were employed. The validation loss curve is shown below:
 
 <p align="center">
   <img src="https://github.com/JoshuaMathew/NBA-ROY-Prediction-/blob/master/images/loss.JPG">
 </p>
 
-Below is the confusion matrix for the results of the NN on the validation dataset.
+Below is the confusion matrix for the results of the NN on the validation dataset:
 
 |  | Predicted ROY  | Predicted Not ROY |
 | :---:  | :-: | :-:|
@@ -122,7 +122,7 @@ Below is the confusion matrix for the results of the NN on the validation datase
 
 the model correctly predicted 32 players that were not ROY, 3 players correctly that were ROY, 2 players were predicted incorrectly to be ROY, and 1 player not to be ROY that actually was. The true positive rate (TPR) was 75% and the false positive rate (FPR) was 5.9%. The model achieved an overall accuracy of 97% on the validation set.
 
-Below are the results on the test set.
+Below are the results on the test set:
 
 | Year | Actual ROY  | Predicted ROY |
 | :---:  | :-: | :-:|
